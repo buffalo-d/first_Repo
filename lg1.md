@@ -29,7 +29,9 @@ Git is free software.
 - 暂存区：stage
 - 版本库：repository
 
-@import "workspace_repository.png"
+![workspace_repository.png](workspace_repository.png)
+
+<!-- @import "workspace_repository.png" -->
 
 @import "git_add.png"
 
