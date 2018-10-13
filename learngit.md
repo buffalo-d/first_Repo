@@ -45,6 +45,10 @@ Git is free software.
 - Git 管理和跟踪的是"更改"，而不是文件本身。没有跟踪(staged)的更改，版本库不会将其记录在内。
 - 没有 `git add` 到 stage 的更改不会被加入到 `commit`中。
 
+Git 保存的不是文件的变化或者差异，而是一系列不同时刻的文件快照。[^1]
+
+[^1]: https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B
+
 ### 撤销更改
 
 1. 撤销工作区某个文件被更改但没有stage的内容：git checkout -- file.txt
@@ -64,7 +68,9 @@ Git is free software.
 
 ## 远程仓库
 
-[ Github帮助文档 ](https://help.github.com/categories/managing-remotes/)
+[ Github帮助文档 ](https://help.github.com/categories/managing-remotes/) [^2]
+
+[^2]:https://help.github.com/categories/managing-remotes/
 
 ### GitHub授权
 
