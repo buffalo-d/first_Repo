@@ -60,6 +60,16 @@ A natural grouping of commands:
   - `git commit`,
   - `git log`
 
+To delete a file from a project, you need to add it to the staging area just like a new or modified file. The next command will stage the deletion and stop tracking the file, but it won’t delete the file from the working directory:
+
+```powershell
+git rm --cached <file>
+```
+
+A natural grouping of commands:
+- Stage/Working Directory: git add, git rm, git status
+- Committed History: git commit, git log
+
 ### 管理更改
 
 - "为什么Git比其他版本控制系统设计得优秀，因为Git跟踪并管理的是修改，而非文件。"
