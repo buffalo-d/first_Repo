@@ -85,7 +85,7 @@ Git 保存的不是文件的变化或者差异，而是一系列不同时刻的�
 
 use `git checkout -- <file>...` to <b>discard changes</b> in working directory
 
-`git checkout -- <file>`命令中的`--`很重要，没有`--`，就变成了“切换到另一个分支”的命令。
+:`git checkout -- <file>`命令中的`--`很重要，没有`--`，就变成了“切换到另一个分支”的命令。
 
 如果`<file>`自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一样的状态；
 
@@ -228,3 +228,56 @@ git clone https://github.com/USERNAME/REPOSITORY.git
 ```
 
 ## 分支管理
+
+- Listing branches
+
+        git branch
+
+- Creating branches
+
+        git branch <name>
+
+- Deleting branches
+
+        git branch -d <name>
+
+### Checking out branches
+
+    git checkout <branch>
+
+    git checkout -b <new-branch-name>
+
+This is a shortcut for `git branch <new-branch-name>` followed by `git checkout <new-branch-name>`.
+
+### Merging branches
+
+The branch you want to merge into must be checked out, and the target branch will remain unchanged.
+
+    git checkout master
+    git merge some-feature
+
+this merges the some-feature branch into the master branch, leaving the former untouched.
+
+#### Fast-forward merges
+
+dev分支版本迭代，master分支保持dev时的状态。
+
+#### 3-way merges
+
+master分支和dev分支都发生了版本迭代。
+
+This started out like a fast-forward merge, but we added a commit to the master branch while we were still developing some-feature，so we wind up in the scenario shown below:
+
+![before 3-way merge](before_3way_merge.png)
+
+Git generates a new merge commit that represents the combined snapshot of both branches. Note that this new commit has two parent commits, giving it access to both histories (indeed, running git log after the 3- way merge shows commits from both branches).
+
+![before 3-way merge](after_3way_merge.png)
+
+### Merge conflicts
+
+If you try to combine two branches that make different changes to the same portion of code, Git won’t know which version to use. This is called a merge conflict.
+
+Every file with a conflict is stored under the “Unmerged paths” section.
+
+### Rebasing
