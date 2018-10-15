@@ -281,3 +281,31 @@ If you try to combine two branches that make different changes to the same porti
 Every file with a conflict is stored under the “Unmerged paths” section.
 
 ### Rebasing
+
+### 推送分支
+
+    git push origin dev
+
+### 抓取分支
+
+- 抓取远程分支到本地新建的分支
+
+        git checkout -b <local-branch> <remote-branch>
+
+- 指定本地分支与远程分支的链接。
+
+        git branch --set-upstream <local-branch> <remote-branch>
+
+### 多人协作
+
+多人协作的工作模式通常是这样：
+
+首先，可以试图用`git push origin branch-name`推送自己的修改；
+
+如果推送失败，则因为远程分支比你的本地更新，需要先用`git pul`l试图合并；
+
+如果合并有冲突，则解决冲突，并在本地提交；
+
+没有冲突或者解决掉冲突后，再用`git push origin branch-name`推送就能成功！
+
+如果`git pull`提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令`git branch --set-upstream branch-name origin/branch-name`。
